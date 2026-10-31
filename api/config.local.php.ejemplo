@@ -1,0 +1,18 @@
+<?php
+// Copia este archivo como config.local.php (NO se sube a git) y pon aquí tus secretos.
+// En un HOSTING, los datos de MySQL salen en su panel (p. ej. «MySQL Databases»): host (NO es 127.0.0.1), base, usuario y contraseña.
+return [
+    'db'     => [
+        'host' => '127.0.0.1',                    // en hosting: algo como sql123.tu-hosting.com
+        'name' => 'practica06_geovisualizacion',  // en hosting suele llevar prefijo: if0_12345678_practica06
+        'user' => 'root',
+        'pass' => '',
+    ],
+    'http'   => [
+        'user_agent' => 'Practica06-ObservatorioCultivos/1.0 (uso academico; contacto: tu-correo@ejemplo.com)',
+        // 'cacert' => 'C:/xampp/php/extras/ssl/cacert.pem',   // solo Windows/XAMPP con error SSL 60
+    ],
+    // Orígenes extra que pueden llamar a la API (localhost/127.0.0.1 con cualquier puerto ya están permitidos), p. ej. GitHub Pages:
+    // 'cors_origins' => ['https://TU-USUARIO.github.io'],
+    // 'claves' => ['open_meteo' => 'TU_API_KEY_SI_USAS_EL_PLAN_COMERCIAL'],
+];

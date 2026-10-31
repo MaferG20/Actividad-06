@@ -1,0 +1,6 @@
+# Todas las rutas /api/... se atienden en index.php (FlightPHP). Si el servidor ignora este archivo (AllowOverride None / sin mod_rewrite)
+# NO pasa nada: el frontend cambia solo a api/index.php/ruta (ver js/api.js).
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]

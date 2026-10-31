@@ -1,0 +1,66 @@
+[
+ {
+  "id": 1,
+  "nombre": "Jutiapa",
+  "pais": "Guatemala",
+  "codigo_pais": "GT",
+  "lat": 14.293,
+  "lon": -89.897
+ },
+ {
+  "id": 2,
+  "nombre": "Córdoba",
+  "pais": "España",
+  "codigo_pais": "ES",
+  "lat": 37.888,
+  "lon": -4.779
+ },
+ {
+  "id": 3,
+  "nombre": "Lisse (Keukenhof)",
+  "pais": "Países Bajos",
+  "codigo_pais": "NL",
+  "lat": 52.262,
+  "lon": 4.557
+ },
+ {
+  "id": 4,
+  "nombre": "Almaty",
+  "pais": "Kazajistán",
+  "codigo_pais": "KZ",
+  "lat": 43.222,
+  "lon": 76.851
+ },
+ {
+  "id": 5,
+  "nombre": "Estambul",
+  "pais": "Turquía",
+  "codigo_pais": "TR",
+  "lat": 41.008,
+  "lon": 28.978
+ },
+ {
+  "id": 6,
+  "nombre": "Quetzaltenango",
+  "pais": "Guatemala",
+  "codigo_pais": "GT",
+  "lat": 14.835,
+  "lon": -91.518
+ },
+ {
+  "id": 7,
+  "nombre": "Mount Vernon (Skagit)",
+  "pais": "Estados Unidos",
+  "codigo_pais": "US",
+  "lat": 48.42,
+  "lon": -122.334
+ },
+ {
+  "id": 8,
+  "nombre": "Mendoza",
+  "pais": "Argentina",
+  "codigo_pais": "AR",
+  "lat": -32.89,
+  "lon": -68.846
+ }
+]

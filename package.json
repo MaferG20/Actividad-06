@@ -1,0 +1,9 @@
+{
+  "name": "practica-06-geovisualizacion",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "seed": "node database/generar_seed.mjs"
+  }
+}

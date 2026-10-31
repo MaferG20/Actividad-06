@@ -1,0 +1,54 @@
+/* Observatorio Global de Cultivos · estilos de la vista del globo (reutiliza las variables de style.css) */
+:root { --barra: 46px; }
+body[data-vista="globo"] .vista-lab { display: none !important; }
+body[data-vista="lab"] .vista-globo { display: none !important; }
+body { background: #020712; }
+
+#barra { position: fixed; z-index: 30; top: 0; left: 0; right: 0; height: var(--barra); display: flex; align-items: center; gap: 18px; padding: 0 16px;
+  background: rgba(6, 18, 26, .92); border-bottom: 1px solid var(--borde); backdrop-filter: blur(8px); }
+#barra b { font-size: .95rem; white-space: nowrap; }
+#barra nav { display: flex; gap: 6px; flex: 1; }
+#barra nav button { background: transparent; border: 1px solid var(--borde); color: var(--txt); padding: 6px 12px; }
+#barra nav button.on { background: var(--verde); color: #06251a; }
+
+#gIzq, #gDer { top: calc(var(--barra) + 12px); bottom: 14px; padding: 12px; overflow-y: auto; scrollbar-width: thin; }
+#gIzq { left: 14px; width: 300px; } #gDer { right: 14px; width: 380px; }
+#gIzq input[type=text] { user-select: text; }
+.lista { list-style: none; margin: 4px 0 0; padding: 0; } .lista li { padding: 6px 8px; border-radius: 6px; cursor: pointer; background: rgba(255,255,255,.05); margin-top: 3px; }
+.lista li:hover { background: rgba(82,183,136,.3); } .lista small { display: block; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; } .chip { padding: 4px 8px; border-radius: 12px; border: 1px solid var(--borde); background: rgba(255,255,255,.06); color: var(--txt); font-size: .7rem; cursor: pointer; font-weight: 600; }
+.chip:hover { background: rgba(82,183,136,.35); }
+.chip.fuente { cursor: default; } .chip.hit { border-color: #4cd98a; color: #b9ffd9; } .chip.miss { border-color: #4fa3ff; color: #cfe6ff; } .chip.err { border-color: #ff6b6b; color: #ffc9c9; }
+.pie { margin-top: 12px; font-size: .68rem; line-height: 1.4; }
+#gPanel h3 { margin: 0 0 2px; font-size: 1.05rem; color: #fff; } #gPanel .coords { color: var(--suave); font-size: .72rem; margin-bottom: 8px; user-select: text; }
+.kv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 6px 0; } .kv div { background: rgba(255,255,255,.06); border-radius: 8px; padding: 6px; text-align: center; }
+.kv small { display: block; font-size: .6rem; } .kv b { font-size: .95rem; }
+.sec { margin-top: 12px; padding-top: 4px; border-top: 1px solid var(--borde); } .sec h5 { margin-top: 8px; }
+.gauge { display: flex; align-items: center; gap: 12px; margin: 6px 0; } .gauge .num { font-size: 2.3rem; font-weight: 900; line-height: 1; }
+.gauge .cls { font-weight: 800; padding: 3px 10px; border-radius: 8px; color: #06140d; }
+.c-Óptima { background: #4cd98a; } .c-Buena { background: #b5e048; } .c-Marginal { background: #ffb347; } .c-Noapta { background: #ff6b6b; }
+.graf2 { height: 150px; background: rgba(0,0,0,.18); border-radius: 8px; padding: 4px; }
+.acciones { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; } .acciones .ancho { grid-column: 1 / -1; }
+.btnA { background: #2563b8; } .btnB { background: #d6336c; }
+.aviso { background: rgba(255,107,107,.15); border: 1px solid #ff6b6b66; border-radius: 8px; padding: 6px 8px; margin: 6px 0; color: #ffd0d0; }
+.spin { display: inline-block; width: 11px; height: 11px; border: 2px solid var(--verde); border-top-color: transparent; border-radius: 50%; animation: g 0.8s linear infinite; vertical-align: -1px; margin-right: 5px; }
+@keyframes g { to { transform: rotate(360deg); } }
+
+#gAB { left: 50%; transform: translateX(-50%); bottom: 16px; padding: 8px 14px; display: flex; gap: 12px; align-items: center; }
+#gAB[hidden] { display: none; } #gAB b.a { color: #6fb4ff; } #gAB b.b { color: #ff7aa8; }
+#tip { position: fixed; z-index: 35; pointer-events: none; background: #0b2a35; border: 1px solid var(--verde); padding: 4px 8px; border-radius: 6px; font-size: .75rem; font-weight: 700; }
+#tip[hidden] { display: none; }
+
+#bannerGeo { top: calc(var(--barra) + 12px); left: 50%; transform: translateX(-50%); padding: 7px 14px; display: flex; gap: 12px; align-items: center; z-index: 20; }
+#bannerGeo[hidden] { display: none; } #bannerGeo button { padding: 5px 10px; }
+
+.caja .win { text-align: center; font-size: 1.1rem; font-weight: 900; padding: 8px; border-radius: 10px; background: rgba(255,224,102,.15); border: 1px solid #ffe066; margin: 8px 0; }
+.caja td.gana { background: rgba(76,217,138,.18); font-weight: 800; }
+.heat td.cel { text-align: center; font-weight: 800; color: #06140d; cursor: pointer; } .heat th { font-size: .65rem; }
+.opts { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin: 8px 0; } .opts label { display: flex; gap: 5px; align-items: center; }
+.opts select { width: auto; margin: 0; }
+
+/* Tabla de especies en el panel del punto + badge clicable (diagnóstico) */
+.rk tr[data-id] { cursor: pointer; } .rk tr[data-id]:hover { background: rgba(255,255,255,.07); } .rk tr.sel { background: rgba(255,224,102,.14); }
+.rk th, .rk td { text-align: left; } .rk td:nth-child(3), .rk th:nth-child(3) { text-align: right; }
+#badgeApi { cursor: pointer; }

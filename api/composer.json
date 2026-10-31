@@ -1,0 +1,5 @@
+{
+  "name": "practica06/geovisualizacion-api",
+  "description": "API REST + proxy seguro de APIs públicas (FlightPHP + PDO + cURL + MySQL) del Observatorio Global de Cultivos",
+  "require": { "php": ">=8.1", "ext-curl": "*", "ext-pdo": "*", "ext-json": "*", "flightphp/core": "^3.0" }
+}

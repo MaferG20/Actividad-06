@@ -1,0 +1,4 @@
+# api/vendor/ SÍ se sube: incluye FlightPHP para hostings sin composer
+api/config.local.php
+.DS_Store
+node_modules/
