@@ -390,7 +390,7 @@ function enlazar() {
 async function init() {
   S.especies = await API.cargarEspecies(); S.sel = S.especies[0];
   $('gEspecie').innerHTML = S.especies.map(e => `<option value="${e.id}">${esc(e.nombre_comun)} (${esc(e.nombre_cientifico)})</option>`).join('');
-  $('badgeApi').textContent = API.estado.conectado ? 'MySQL conectado' : 'Modo local (sin API)'; $('badgeApi').classList.toggle('ok', API.estado.conectado);
+  $('badgeApi').textContent = API.estado.sinDatos ? '⚠ MySQL sin datos: importa seed.sql' : API.estado.conectado ? 'MySQL conectado' : 'Modo local (sin API)'; $('badgeApi').classList.toggle('ok', API.estado.conectado && !API.estado.sinDatos);
   $('badgeApi').title = API.estado.conectado ? 'FlightPHP + MySQL + proxy de APIs disponibles (clic = diagnóstico)' : 'La API PHP no responde (clic = diagnóstico): ' + (API.estado.error || '');
   globo = crearGlobo({
     onClick: h => h.ubic ? seleccionarPunto(+h.ubic.lat, +h.ubic.lon, h.ubic) : seleccionarPunto(h.lat, h.lon),

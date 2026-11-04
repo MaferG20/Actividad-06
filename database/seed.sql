@@ -2,6 +2,7 @@
 -- Contiene catálogo, 8 ubicaciones de ejemplo (solo nombre y coordenadas) y las 15 simulaciones de la P05.
 -- NO contiene datos climáticos/suelo/GBIF inventados: esos se descargan de las APIs reales y se guardan al usar la app.
 USE practica06_geovisualizacion;
+SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS=0;
 TRUNCATE comparaciones_geo; TRUNCATE comparaciones_ab; TRUNCATE decisiones; TRUNCATE analisis_geo; TRUNCATE ubicaciones; TRUNCATE mediciones; TRUNCATE simulaciones; TRUNCATE especies;
 SET FOREIGN_KEY_CHECKS=1;

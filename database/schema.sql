@@ -4,6 +4,7 @@
 -- Tablas nuevas de la P06:   cache_api, ubicaciones, analisis_geo, comparaciones_geo
 CREATE DATABASE IF NOT EXISTS practica06_geovisualizacion CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE practica06_geovisualizacion;
+SET NAMES utf8mb4;
 
 DROP TABLE IF EXISTS comparaciones_geo;
 DROP TABLE IF EXISTS comparaciones_ab;

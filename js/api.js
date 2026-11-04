@@ -45,6 +45,12 @@ export async function cargarEspecies() {
     if (!(await detectarModo())) throw new Error('el servidor no llega a api/index.php. Probado:\n' + estado.intentos.join('\n'));
     const r = await llamar('/especies');
     estado.conectado = true;
+    // MySQL conecta pero la tabla está vacía (se importó schema.sql sin seed.sql): sin esto la página se queda sin especies ni marcadores
+    if (!r.data?.length) {
+      estado.sinDatos = true;
+      console.warn('La tabla especies está vacía: importa database/seed.sql en phpMyAdmin. Mientras, se usa data/especies.json');
+      return (await fetch('./data/especies.json').then(x => x.json())).map(normalizar);
+    }
     return r.data.map(normalizar);
   } catch (err) {
     estado.error = err.message;
@@ -85,8 +91,13 @@ export const geoComparaciones = () => llamar('/geo/comparaciones').then(r => r.d
 export const geoCache = () => llamar('/geo/cache/estado');
 export const geoDiagnostico = () => llamar('/geo/diagnostico?probar=1', {}, LARGO);
 export async function cargarUbicaciones() {
-  try { return (await llamar('/geo/ubicaciones')).data.map(u => ({ ...u, lat: +u.lat, lon: +u.lon })); }
-  catch { return fetch('./data/ubicaciones.json').then(r => r.json()); }
+  const local = () => fetch('./data/ubicaciones.json').then(r => r.json()).then(l => l.map(u => ({ preset: 1, ...u })));
+  try {
+    const d = (await llamar('/geo/ubicaciones')).data;
+    if (!d?.length) { estado.sinDatos = true; return local(); }   // tabla ubicaciones vacía (falta seed.sql)
+    return d.map(u => ({ ...u, lat: +u.lat, lon: +u.lon }));
+  }
+  catch { return local(); }
 }
 
 // Consumo DIRECTO desde el navegador (sin proxy): Open-Meteo Geocoding no usa API key, admite CORS y es de baja carga
